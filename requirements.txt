@@ -26,4 +26,4 @@ tqdm==4.54.1
 urllib3==1.26.2
 vaderSentiment==3.3.2
 Werkzeug==1.0.1
-averaged_perceptron_tagger
+ 
