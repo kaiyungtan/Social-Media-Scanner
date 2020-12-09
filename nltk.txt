@@ -1,7 +1,3 @@
-corpora
 stopwords
 punkt
-wordnet
-pros_cons
-reuters
 vader_lexicon
