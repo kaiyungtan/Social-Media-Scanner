@@ -1,2 +1,7 @@
-nltk.download('stopwords')
-nltk.download('punkt')
+corpora
+stopwords
+punkt
+wordnet
+pros_cons
+reuters
+vader_lexicon
