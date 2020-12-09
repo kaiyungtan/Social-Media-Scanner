@@ -1,11 +1,11 @@
 from flask import Flask, request, jsonify, render_template, url_for, flash, redirect
+import nltk
 import joblib
 import pandas as pd
 import numpy as np
 import pickle
-import sys
+#import sys
 from sklearn.feature_extraction.text import TfidfVectorizer
-import nltk
 nltk.download('stopwords')
 from nltk.stem.porter import *
 import string
