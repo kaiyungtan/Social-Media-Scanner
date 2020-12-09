@@ -6,6 +6,7 @@ import pickle
 import sys
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
+nltk.download('stopwords')
 from nltk.stem.porter import *
 import string
 import re
