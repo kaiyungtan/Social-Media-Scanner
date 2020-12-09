@@ -24,8 +24,20 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Contact</a>
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Login</a>
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">Register</a>
+            </div>
             <!-- Navbar Right Side -->
-
+              <div class="navbar-nav">
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">EN</a>
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">FR</a>
+              <a class="nav-item nav-link" href="{{ url_for('home') }}">NL</a>
+            </div>
+            </div>
             </div>
           </div>
         </div>
@@ -50,11 +62,18 @@
             <h3>Coming Soon</h3>
             <p class='text-muted'>  
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Scanner</li>
+                <li class="list-group-item list-group-item-light">Text Scanner</li>
                 <a class="nav-item nav-link" href="{{ url_for('home') }}">Twitter</a>
                 <a class="nav-item nav-link" href="{{ url_for('home') }}">Facebook</a>
                 <a class="nav-item nav-link" href="{{ url_for('home') }}">Instagram</a>
                 <a class="nav-item nav-link" href="{{ url_for('home') }}">Website/Blog/Forums</a>
+                <li class="list-group-item list-group-item-light">Video Scanner</li>
+                <a class="nav-item nav-link" href="{{ url_for('home') }}">Youtube</a>
+                <a class="nav-item nav-link" href="{{ url_for('home') }}">Tiktok</a>
+                <li class="list-group-item list-group-item-light">Analyzer</li>
+                <a class="nav-item nav-link" href="{{ url_for('home') }}">Word Cloud</a>
+                <li class="list-group-item list-group-item-light">Database</li>
+                <a class="nav-item nav-link" href="{{ url_for('home') }}">Hate Speech</a>
               </ul>
             </p>
           </div>

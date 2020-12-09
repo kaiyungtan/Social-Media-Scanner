@@ -41,7 +41,6 @@ nlp_model = joblib.load('./model/nlp_model.pkl')
 def home():
     return render_template("home.html")
 
-
 # route to direct predict house price by postal code
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -203,9 +202,9 @@ def predict():
             return np.array(feats)
 
         if request.method == 'POST':
-            text = request.form['message']
+            message = request.form['message']
         
-        text = pd.Series(text)
+        text = pd.Series(message)
         tfidf = vectorizer.transform(text).toarray()
 
         #Get POS tags for tweets and save as a string
@@ -236,9 +235,9 @@ def predict():
         else:
             prediction = 'hateful.'
              
-        return render_template('result.html', prediction = 'This sentence is {} '.format(prediction))
+        return render_template('result.html',prediction  = 'This sentence is {} '.format(prediction))
 
-
+        #original_message = '{}'.format(message),
 # return result of the prediction
 @app.route("/result")
 def result():

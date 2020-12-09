@@ -5,9 +5,9 @@
 		<header>
 			<div class="container">
 				<div id="brandname">
-					Social Media Scanner
+					<h3>Hate Speech Detector</h3>
 				</div>
-				<h3>Hate Speech Detector</h3>
+				
 			
 			</div>
 		</header>
@@ -17,7 +17,7 @@
 			<form action="{{ url_for('predict')}}" method="POST">
 				
 			<!-- <input type="text" name="comment"/> -->
-			<textarea name="message" rows="8" cols="70" placeholder="Enter Text Here" required="required" ></textarea>
+			<textarea name="message" rows="5" cols="70" placeholder="Enter Text Here" required="required" ></textarea>
 			<br/>
 
 			<input type="submit" class="btn-info" value="predict">
@@ -28,7 +28,7 @@
 
 	</body>
   <br>
-  <img width="500" alt="scanner" src="https://user-images.githubusercontent.com/69633814/101639973-3bbcc400-3a30-11eb-8a7a-1cfbfcc7302e.gif">
+  <img width="700" alt="scanner" src="https://user-images.githubusercontent.com/69633814/101667625-d973bb80-3a4f-11eb-88bf-3c7e8102a50e.gif">
  
 
 {% endblock content %}

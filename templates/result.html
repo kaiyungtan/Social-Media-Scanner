@@ -6,7 +6,20 @@
 
 	    <h3> {{ prediction }}</h3>
 
-	    <img width="500" alt="scanner" src="https://user-images.githubusercontent.com/69633814/101637252-ce5b6400-3a2c-11eb-8642-0c18f08d9190.png">
+
+		<div class="ml-container">
+
+			<form action="{{ url_for('home')}}" >
+				
+
+			<input type="submit" class="btn-info" value="Save to Database">
+			
+			
+			</form>
+			
+		</div>	   
+
+	    <img width="500" alt="scanner" src="https://user-images.githubusercontent.com/69633814/101641801-7cb5d800-3a32-11eb-884d-23a6dccb9c94.gif">
 
 		
 	 </div>
