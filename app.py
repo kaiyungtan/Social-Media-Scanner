@@ -4,7 +4,6 @@ import joblib
 import pandas as pd
 import numpy as np
 import pickle
-#import sys
 from sklearn.feature_extraction.text import TfidfVectorizer
 nltk.download('stopwords')
 from nltk.stem.porter import *
@@ -230,13 +229,13 @@ def predict():
         
         if my_prediction[0] == 2:
             prediction = 'neutral.'
-        
+             
         elif my_prediction[0] == 1:
             prediction = 'offensive.'
-            
+                 
         else:
-            prediction = 'hate speech.'
-    
+            prediction = 'hateful.'
+             
         return render_template('result.html', prediction = 'This sentence is {} '.format(prediction))
 
 
