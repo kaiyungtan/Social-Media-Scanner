@@ -1,0 +1,194 @@
+{% extends "layout.html" %}
+{% block content %} 
+  <body>
+   <div class="main">
+  	<h1>Predict Apartment Price with Postal Code</h1>
+
+       <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict_apartment_postal_code')}}"method="post">
+        <label for="postal_code">postal_code:</label>
+        <input type="text" name="postal_code" placeholder="postal_code" required="required" />
+        <br> 
+        <label for="number_of_rooms">number_of_rooms:</label>
+        <input type="int" name="number_of_rooms" placeholder="number_of_rooms" required="required" />
+        <br> 
+        <label for="house_area">house_area:</label>
+        <input type="int" name="house_area" placeholder="house_area in m2" required="required" />
+        <br> 
+        <label for="fully_equipped_kitchen">fully_equipped_kitchen:</label>
+        <select name="fully_equipped_kitchen" id="fully_equipped_kitchen">
+          <option value="yes">yes</option>
+          <option value="no">no</option>
+        </select>
+        <br> 
+        <label for="open_fire">open_fire:</label>
+        <select name="open_fire" id="open_fire">
+          <option value="yes">yes</option>
+          <option value="no">no</option>
+        </select>
+        <br> 
+        <label for="terrace">terrace:</label>
+        <select name="terrace" id="terrace">
+          <option value="yes">yes</option>
+          <option value="no">no</option>
+        </select>
+        <br> 
+        <label for="garden">garden:</label>
+        <select name="garden" id="garden">
+          <option value="yes">yes</option>
+          <option value="no">no</option>
+        </select>
+        <br> 
+        <label for="number_of_facades">number_of_facades:</label>
+        <select name="number_of_facades" id="number_of_facades">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <br> 
+        <label for="swimming_pool">swimming_pool:</label>
+        <select name="swimming_pool" id="swimming_pool">
+          <option value="1">yes</option>
+          <option value="2">no</option>
+        </select> 
+        <br> 
+        <label for="state_of_the_building">state_of_the_building:</label>
+        <select name="state_of_the_building" id="state_of_the_building">
+          <option value="1">as new</option>
+          <option value="2">good</option>
+          <option value="3">just renovated</option>
+          <option value="4">to renovate</option>
+          <option value="5">unknown</option>
+        </select>
+        <br> 
+        <label for="construction_year">construction_year:</label>
+        <input type="int" name="construction_year" placeholder="construction_year" required="required" />
+        <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
+      </form>
+   </div>
+  </body>
+
+<details>
+  <summary>Features</summary>
+<ol>
+<li>postal_code (str): Postal code of city</li>
+<br>
+<li>number_of_rooms (int): The number of rooms of the property</li>
+<br>
+<li>house_area (int): The area (m2) of the house (floors)</li>
+<br>
+<li>fully_equipped_kitchen (str): If the house has a fully equipped kitchen or not</li>
+<br>
+<li>open_fire (str): If there's an open fire or not</li>
+<br>
+<li>terrace (str): If there's a terrace or not</li>
+<br>
+<li>garden (str): If there's a garden or not</li>
+<br>
+<li>number_of_facadess (int): The number of facades (0 to 4)</li>
+<br>
+<li>swimming_pool (str): If there's a swimming pool or not</li>
+<br>
+<li>state_of_the_building (str): as new/good/just renovated/to renovated/unknown</li>
+<br>
+<li>construction_year (int): The property built's year</li>
+<br>
+</ol>
+</details>
+
+<details>
+  <summary>Postal codes correspondence to Region/Province</summary>
+
+<ul>
+<li>1000–1299 :  Région de Bruxelles-Capitale</li>
+<br>
+<li>1300–1499 :  Province du Brabant wallon</li>
+<br>
+<li>1500–1999 :  Province du Brabant flamand (arrondissement de Hal-Vilvorde, sauf Overijse)</li>
+<br>
+<li>2000–2999 :  Province d'Anvers</li>
+<br>
+<li>3000–3499 :  Province du Brabant flamand (arrondissement de Louvain, plus Overijse)</li>
+<br>
+<li>3500–3999 :  Province de Limbourg</li>
+<br>
+<li>4000–4999 :  Province de Liège</li>
+<br>
+<li>5000–5999 :  Province de Namur</li>
+<br>
+<li>6000–6599 :  Province de Hainaut (1)</li>
+<br>
+<li>6600–6999 :  Province de Luxembourg</li>
+<br>
+<li>7000–7999 :  Province de Hainaut (2)</li>
+<br>
+<li>8000–8999 :  Province de Flandre-Occidentale</li>
+<br>
+<li>9000–9999 :  Province de Flandre-Orientale</li>
+</ul> 
+</details>
+
+<details>
+  <summary>Guidelines for inputs</summary>
+<ol>
+ postal_code            : number 
+<br>
+ number_of_rooms        : number
+<br>
+ house_area             : number
+<br>
+ fully_equipped_kitchen : yes/no
+<br>
+ open_fire              : yes/no
+<br>
+ terrace                : yes/no
+<br>
+ garden                 : yes/no
+<br>
+ number_of_facades      : number
+<br>
+ swimming_pool          : yes/no
+<br>
+ state_of_the_building  : as new/good/just renovated/to renovate/unknown
+<br>
+ construction_year      : number
+</ol>
+</details>
+
+<details>
+  <summary>Example inputs</summary>
+<ol>
+ postal_code            : 1070
+<br>
+ number_of_rooms        : 2
+<br>
+ house_area             : 130
+<br>
+ fully_equipped_kitchen : yes 
+<br>
+ open_fire              : no
+<br>
+ terrace                : yes
+<br>
+ garden                 : no 
+<br>
+ number_of_facades      : 2
+<br>
+ swimming_pool          : no
+<br>
+ state_of_the_building  : as new 
+<br>
+ construction_year      : 2017
+ 
+</details>
+
+
+<img src="https://user-images.githubusercontent.com/69633814/99885304-2b38db00-2c34-11eb-9e80-50ae8cad4f96.png" alt="apartment" width="700px">
+
+
+{% endblock content %}
+
+

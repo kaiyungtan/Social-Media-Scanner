@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+	 <body>
+
+		<header>
+			<div class="container">
+			<div id="brandname">
+				Social Media Scanner
+			</div>
+			<h2>Detector for Tweets</h2>
+			
+		</div>
+		</header>
+
+		<div class="ml-container">
+
+			<form action="{{ url_for('predict')}}" method="POST">
+			<p>Enter Your Message Here</p>
+			<!-- <input type="text" name="comment"/> -->
+			<textarea name="message" rows="6" cols="50"></textarea>
+			<br/>
+
+			<input type="submit" class="btn-info" value="predict">
+			
+		</form>
+			
+		</div>
+
+	</body>
+  <br>
+  <img src="https://user-images.githubusercontent.com/69633814/99885385-bc0fb680-2c34-11eb-8513-c54935f9fa94.png" alt="Welcome" width="700px">
+{% endblock content %}
+
+ 
+
